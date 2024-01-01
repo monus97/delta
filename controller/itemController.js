@@ -8,10 +8,6 @@ const addItem = async (req, res) => {
         message: "Please fill all fields",
       });
     }
-    const checkedItem = await item.findOne({ title: req.body.title });
-    if (checkedItem) {
-      return res.status(409).json({ message: "title already exits" });
-    }
     const newItem = new item({
       title,
       description,
